@@ -1,12 +1,17 @@
+#!/bin/bash
+
+# Check Parameter
 if [ $# -lt 3 ]; then
 	echo "Penggunaan: $0 <file_source> <username> <ip_address_remote>"
 	exit 1
 fi
 
+# Variable
 file_source=$1
 username=$2
 ip_address=$3
 
+# Copy file dengan SCP
 echo "Menyalin file dengan SCP"
 scp -r "$file_source" "$username@$ip_address:~/"
 

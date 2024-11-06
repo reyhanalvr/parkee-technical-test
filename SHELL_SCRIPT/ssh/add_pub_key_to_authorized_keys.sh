@@ -1,14 +1,17 @@
 #!/bin/bash
 # Jalankan Script dengan super user(sudo) 
 
+# Check parameter
 if [ "$#" -lt 2 ]; then
     echo "Penggunaan: sudo $0 <file_public_key> <username>"
     exit 1
 fi
 
+# Variable
 file_public_key=$1
 username=$2
 
+# Check file public key ditemukan atau tidak
 if [ ! -f "$file_public_key" ]; then
     echo "File public key $file_public_key tidak ditemukan."
     exit 1

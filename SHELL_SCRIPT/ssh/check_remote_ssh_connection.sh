@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# Check parameter
 if [ "$#" -lt 2 ]; then
     echo "Penggunaan: $0 <username> <ip_address_server>"
     exit 1
 fi
 
+# Variable
 username=$1
 ip_address=$2
 

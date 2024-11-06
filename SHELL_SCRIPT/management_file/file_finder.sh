@@ -6,9 +6,11 @@ if [ "$#" -lt 2 ]; then
     exit 1
 fi
 
+# Variable
 direktori=$1
 ekstensi=$2
 
+# Check direktori ditemukan atau tidak
 if [ ! -d "$direktori" ]; then
     echo "Direktori $direktori tidak ditemukan."
     exit 1

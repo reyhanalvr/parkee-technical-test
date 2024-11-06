@@ -1,14 +1,17 @@
 #!/bin/bash
 
+# Check paramater
 if [ "$#" -lt 2 ]; then
     echo "Penggunaan: $0 <tindakan> <nama_service>"
     echo "Tindakan yang valid: start, stop, status"
     exit 1
 fi
 
+# Variable
 tindakan=$1
 nama_service=$2
 
+# Jalankan script berdasarkan parameter tindakan
 case $tindakan in
     start)
         echo "Memulai service $nama_service..."

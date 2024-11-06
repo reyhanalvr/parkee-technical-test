@@ -9,9 +9,9 @@ fi
 
 # Lokasi file konfigurasi netplan
 netplan_config="/etc/netplan/01-netcfg.yaml"
-
 sudo chmod 600 $netplan_config
 
+# Konfigurasi jaringan dengan netplan
 echo "Mengkonfigurasi jaringan dengan netplan..."
 
 cat << EOF > $netplan_config

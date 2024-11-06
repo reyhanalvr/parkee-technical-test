@@ -8,6 +8,7 @@ if [ ! -w "$log_file" ]; then
     sudo chmod 666 "$log_file"
 fi
 
+# Looping 
 while true; do
     # Rata-rata penggunaan CPU 1 menit
     cpu_load=$(awk '{print $1}' < /proc/loadavg)
@@ -21,6 +22,7 @@ while true; do
         echo "$(date): CPU load is $cpu_load, which is above threshold $load_threshold." >> "$log_file"
     fi
 
+    # Print output CPU Load
     echo "$(date): Current CPU load is $cpu_load"
 
     sleep 10

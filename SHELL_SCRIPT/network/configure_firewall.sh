@@ -8,19 +8,21 @@ fi
 
 echo "Mengatur aturan firewall dengan iptables..."
 
-# 1. Mengizinkan semua koneksi keluar
+# Mengizinkan semua koneksi keluar
 iptables -P OUTPUT ACCEPT
 
-# 2. Mengizinkan koneksi masuk ke port 22, 80, dan 443
+# Mengizinkan koneksi masuk ke port 22, 80, dan 443
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT   # SSH
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT   # HTTP
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT  # HTTPS
 
-# 3. Menolak semua koneksi masuk selain port port diatas
+# Menolak semua koneksi masuk selain port port diatas
 iptables -P INPUT DROP
 
+# Mengizinkan koneksi loopback (localhost)
 iptables -A INPUT -i lo -j ACCEPT
 
+# Menampilkan aturan firewall yang telah diterapkan
 echo "Aturan firewall yang telah diterapkan:"
 iptables -L -v
 

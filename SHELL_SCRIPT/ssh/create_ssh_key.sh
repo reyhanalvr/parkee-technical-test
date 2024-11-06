@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# Check parameter
 if [ "$#" -lt 1 ]; then
 	echo "Penggunaan: #0 <direktori_penyimpanan_ssh>"
 	exit 1
 fi
 
+# Variable
 direktori=$1
 
+# Check direktori, jika tidak ditemukan akan membuat direktori baru berdasarkan parameter
 if [ ! -d "$direktori" ]; then
 	echo "Direktori $direktori tidak ditemukan. Membuat direktori baru"
 	mkdir -p "$direktori"

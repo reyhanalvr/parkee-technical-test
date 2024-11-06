@@ -1,15 +1,14 @@
 #!/bin/bash
 
-
-# Nama Host
+# Print Output Nama Host
 echo "Nama Host:"
 hostname
 
-# Uptime
+# Print Output Waktu Sistem
 echo -e "\nWaktu Sistem Saat Ini:"
 date
 
-# Jumlah Pengguna
+# Print Output Jumlah Pengguna
 echo -e "\nJumlah Pengguna yang Sedang Login:"
 who | wc -l
 

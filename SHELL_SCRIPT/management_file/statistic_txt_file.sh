@@ -6,8 +6,10 @@ if [ "$#" -lt 1 ]; then
     exit 1
 fi
 
+# Variable
 direktori=$1
 
+# Check direktori ditemukan atau tidak
 if [ ! -d "$direktori" ]; then
     echo "Direktori $direktori tidak ditemukan."
     exit 1
@@ -25,6 +27,7 @@ for file in "$direktori"/*.txt; do
         kata=$(wc -w < "$file")
         karakter=$(wc -m < "$file")
         
+	#Print Output
         printf "%-30s %-10d %-10d %-10d\n" "$(basename "$file")" "$baris" "$kata" "$karakter"
     fi
 done

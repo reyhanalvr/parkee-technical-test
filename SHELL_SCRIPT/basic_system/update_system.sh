@@ -6,6 +6,7 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
+# Logfile Path
 log_file="/var/log/update_log_$(date +%Y%m%d_%H%M%S).log"
 
 # Fungsi untuk melakukan update menggunakan 'apt'
@@ -27,6 +28,7 @@ update_dnf() {
     sudo dnf update -y | tee -a "$log_file"
 }
 
+# Conditional package manager
 if command -v apt > /dev/null; then
     update_apt
 elif command -v yum > /dev/null; then

@@ -1,11 +1,13 @@
 #!/bin/bash
 # Jalankan script dengan super user(sudo)
 
+# Check parameter
 if [ "$#" -lt 2 ]; then
     echo "Penggunaan: sudo $0 <string_unique_public_key> <username>"
     exit 1
 fi
 
+# Variable
 string_unique=$1
 username=$2
 
@@ -15,7 +17,7 @@ if ! id "$username" &>/dev/null; then
     exit 1
 fi
 
-# Path 
+# Path authorized keys
 user_home=$(eval echo "~$username")
 authorized_keys="$user_home/.ssh/authorized_keys"
 
@@ -24,13 +26,13 @@ if [ ! -f "$authorized_keys" ]; then
     exit 1
 fi
 
-# Memeriksa apakah string unik ada dalam authorized_keys
+# Memeriksa apakah parameter string unique ada dalam authorized_keys
 if ! grep -q "$string_unique" "$authorized_keys"; then
     echo "Public key yang mengandung '$string_unique' tidak ditemukan di $authorized_keys."
     exit 1
 fi
 
-# Membaut backup file
+# Membuat backup file authorized_keys
 cp "$authorized_keys" "$authorized_keys.bak"
 
 # Mengecualikan variable string_unique dengan grep -v

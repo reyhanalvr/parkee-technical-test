@@ -1,8 +1,12 @@
+#!/bin/bash
+
+# Check parameter
 if [ "$#" -lt 3 ]; then
 	echo "Penggunaan: $0 <file_public_key> <username> <ip_address_server> "
 	exit 1
 fi
 
+# Variable
 file_public_key=$1
 username=$2
 ip_address=$3
