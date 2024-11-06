@@ -1,4 +1,4 @@
-# Sripting Data
+# Scripting Data
 
 1. Hapus baris yang memiliki nilai NaN pada kolom transaction_id, date, dan customer_id.
 2. Ubah format kolom date menjadi tipe datetime.
