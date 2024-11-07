@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import pandas as pd
 import requests
 
@@ -5,7 +7,7 @@ import requests
 def fetch_universities(country_keyword):
     # URL API
     url = f"http://universities.hipolabs.com/search?country={country_keyword}"
-    
+
     response = requests.get(url)
     
     if response.status_code == 200:
